@@ -1,36 +1,39 @@
 #pragma once
 #include "Personagem.h"
+using namespace std;
 
 namespace Entidades
 {
-	class Jogador : public Personagem
+	namespace Personagens
 	{
-	protected:
-		/*
-			inJump e inAir são variáveis para checar se o jogador está no ar 
-			ou pulando, serão usadas em outro momento ou deletadas se necessário.
-		*/
-		bool inJump;
-		bool inAir;
-		static int pontuacao;
+		class Jogador : public Personagem
+		{
+		private:
+			bool inAir;
+			bool inMovement;
+			
+			sf::Vector2f curVel;
 
-	public:
-		Jogador();
-		~Jogador();
-		void executar();
+			static unsigned int score;
 
-		//funções de movimento.
-		void movimentar();
-		void pular();
+		public:
+			Jogador(const sf::Vector2f pos, const sf::Vector2f size, const int hp = 3);
+			~Jogador();
+
+			void setCurVel(const sf::Vector2f v) { curVel = v; }
 
 
-		//overload de operators para  diminuir e aumentar as vidas.
-		Jogador& operator++(); 
-		Jogador& operator--();
+			Jogador& operator++() { score += 500; return *this; }
+			Jogador& operator--() { setHP(getHP()-1); return *this; }
+			void operator+=(const int hp);
 
-		//Operator += utilizado para adicionar a pontuação.
-		Jogador& operator+=(const int pts);
+			const unsigned int getScore() const { return score; }
+			const sf::Vector2f getCurVel() const { return curVel; }
 
-	};
+
+			void move();
+			void refresh();
+		};
+
+	}
 }
-

@@ -3,7 +3,6 @@
 #include "Ente.h"
 
 using namespace std;
-using namespace sf;
 
 namespace Entidades
 {
@@ -11,16 +10,21 @@ namespace Entidades
 	{
 	protected:
 		RectangleShape entity;
-		RenderWindow *window;
-		int x;
-		int y;
+		Vector2f position;
+		Vector2f entSize;
 
 	public:
-		Entidade();
+		Entidade(Vector2f pos, Vector2f size);
 		~Entidade();
 
-		void setWindow(RenderWindow* pWindow = NULL) { this->window = pWindow; }
-		void draw() { window->draw(entity); }
+		void setPosition(Vector2f pos) { position = pos; }
+		void setSize(Vector2f size) { entSize = size; }
+
+		const Vector2f getPosition() const { return position; }
+		const Vector2f getEntSize() const { return entSize; }
+
+		void draw() { pGerGraf->draw(entity); }
+		virtual void refresh() = 0;
 	};
 }
 using namespace Entidades;

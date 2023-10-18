@@ -1,11 +1,9 @@
 #include "Entidade.h"
 
-Entidades::Entidade::Entidade() :
-	entity(Vector2f(10.f, 10.f)),
-	x(),
-	y()
+Entidades::Entidade::Entidade(Vector2f pos, Vector2f size) :
+	entity(RectangleShape(size)), position(pos), entSize(size)
 {
-	window = NULL;
+	entity.setPosition(pos);
 }
 
 Entidades::Entidade::~Entidade()

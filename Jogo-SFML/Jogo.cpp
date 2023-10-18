@@ -1,9 +1,9 @@
 #include "Jogo.h"
 
 Jogo::Jogo() :
-    window(VideoMode(640, 480), "jogasso")
+    player1(sf::Vector2f(0.0f, 0.0f), Vector2f(5.f, 5.f)),
+    pGerGraf(pGerGraf->getGerGraf())
 {
-    player1.setWindow(&window);
     executar();
 }
 
@@ -11,27 +11,26 @@ Jogo::Jogo() :
 
 void Jogo::executar()
 {
+    
 
-    while (window.isOpen())
+    while (pGerGraf->getClosed())
     {
 
         sf::Event event;
 
-        while (window.pollEvent(event))
+        while (pGerGraf->getWindow()->pollEvent(event))
         {
 
             if (event.type == sf::Event::Closed)
-                window.close();
+                pGerGraf->close();
 
         }
 
-        player1.movimentar();
-
-        window.clear();
+        pGerGraf->clean();
 
         player1.draw();
         
-        window.display();
+        pGerGraf->display();
 
     }
 }

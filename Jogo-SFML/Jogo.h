@@ -3,16 +3,17 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Jogador.h"
+#include "GerenciadorGrafico.h"
+
 
 using namespace std;
 using namespace sf;
-using namespace Entidades;
 
 class Jogo
 {
 private:
-	RenderWindow window;
-	Jogador player1;
+	Entidades::Personagens::Jogador player1;
+	Gerenciadores::GerenciadorGrafico* pGerGraf;
 
 public:
 	Jogo();

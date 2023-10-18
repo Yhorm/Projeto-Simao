@@ -1,8 +1,9 @@
 #include "GerenciadorGrafico.h"
 
+GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::pGerGraf(nullptr);
 
 Gerenciadores::GerenciadorGrafico::GerenciadorGrafico() :
-    window(new RenderWindow(VideoMode(1280.f, 720.f), "Jogasso"))
+    window(new RenderWindow(VideoMode(1280, 720), "Jogasso"))
 {
     if (window == nullptr)
     {
