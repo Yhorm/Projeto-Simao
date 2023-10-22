@@ -13,23 +13,31 @@ namespace Entidades
 			int hitpoints;
 
 			sf::Vector2f hitboxSize;
-
 			sf::Vector2f velocity;
+
 			const float velMax;
 
 			bool alive;
+			bool inAir;
+			bool inMovement;
+
 		public:
 			Personagem(const sf::Vector2f pos, const sf::Vector2f size, const float vMax = 4, const int hp = 1);
 			~Personagem();
 
-			void setVelocity(sf::Vector2f vel) { velocity = vel; }
-			void setHP(const int hp) { hitpoints = hp; }
-			void setAlive(const bool a) { alive = a; }
 
+			void setHP(const int hp) { hitpoints = hp; }
 			const int getHP() const { return hitpoints; }
+
+			void setAlive(const bool a) { alive = a; }
 			const bool getAlive() const { return alive; }
+
+			void setHitboxSize(const sf::Vector2f hitbox) { hitboxSize = hitbox; }
 			const sf::Vector2f getHitboxSize() const { return hitboxSize; }
+
+			void setVelocity(const sf::Vector2f vel) { velocity = vel; }
 			const sf::Vector2f getVelocity() const { return velocity; }
+
 			const float getVelMax() const { return velMax; }
 
 			virtual void move() = 0;

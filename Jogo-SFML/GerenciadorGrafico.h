@@ -16,7 +16,7 @@ namespace Gerenciadores
 		static GerenciadorGrafico* pGerGraf;
 		GerenciadorGrafico();
 	public:
-		GerenciadorGrafico* getGerGraf();
+		static GerenciadorGrafico* getGerGraf();
 		~GerenciadorGrafico();
 		RenderWindow* getWindow() { return window; }
 		
@@ -26,7 +26,6 @@ namespace Gerenciadores
 		void close() { window->close(); }
 		void display() { window->display(); }
 		void clean() { window->clear(); }
-
 
 	};
 

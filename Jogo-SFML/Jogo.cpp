@@ -11,8 +11,6 @@ Jogo::Jogo() :
 
 void Jogo::executar()
 {
-    
-
     while (pGerGraf->getClosed())
     {
 

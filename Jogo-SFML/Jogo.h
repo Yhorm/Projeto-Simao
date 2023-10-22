@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Jogador.h"
 #include "GerenciadorGrafico.h"
+#include "GerenciadorEventos.h"
 
 
 using namespace std;
