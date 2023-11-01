@@ -1,29 +1,27 @@
 #pragma once
 
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include "Jogador.h"
-#include "GerenciadorGrafico.h"
+#include <SFML/graphics.hpp>
+
 #include "GerenciadorEventos.h"
+#include "GerenciadorGrafico.h"
 
 
 using namespace std;
 using namespace sf;
 
-class Jogo
-{
+class Jogo {
 private:
-	Entidades::Personagens::Jogador player1;
-	Gerenciadores::GerenciadorGrafico* pGerGraf;
-
+    Entidades::Personagens::Jogador player1;
+    //Entidades::Personagens::Jogador player2;
+    Gerenciadores::GerenciadorGrafico *pGerGraf;
+    Gerenciadores::GerenciadorEventos *EventManager;
 public:
-	Jogo();
+    Jogo();
 
-	~Jogo()
-	{
-	}
+    ~Jogo();
 
-	void executar();
+    void executar();
 
 };
 

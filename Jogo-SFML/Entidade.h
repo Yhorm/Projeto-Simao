@@ -9,9 +9,9 @@ namespace Entidades
 	class Entidade : public Ente
 	{
 	protected:
-		RectangleShape entity;
-		Vector2f position;
-		Vector2f entSize;
+		sf::RectangleShape entity;
+		sf::Vector2f position;
+		sf::Vector2f entSize;
 
 	public:
 		Entidade(Vector2f pos, Vector2f size);

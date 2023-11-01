@@ -40,9 +40,8 @@ namespace Entidades
 
 			const float getVelMax() const { return velMax; }
 
-			virtual void move() = 0;
-			virtual void refresh() = 0;
-
+            virtual void move(const bool left) = 0;
+            virtual void refresh() = 0;
 		};
 
 	}

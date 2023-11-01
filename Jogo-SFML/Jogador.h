@@ -1,46 +1,60 @@
 #pragma once
+
+
 #include "Personagem.h"
-#include "GerenciadorEventos.h"
+//#include "Vector.h"
+#include "Constants.h"
 
 
 using namespace std;
 
-#define VMAX 10.0F
-#define GRAVITY 0.98F
-
-namespace Entidades
+namespace Gerenciadores
 {
-	namespace Personagens
-	{
-		class Jogador : public Personagem
-		{
-		private:
-			Gerenciadores::GerenciadorEventos* pGerEvent;
-			static unsigned int score;
+    class GerenciadorEventos;
+}
 
-			sf::Clock timer;
-			float varTempo;
+namespace Entidades {
+    namespace Personagens {
+        class Jogador : public Personagem {
+        private:
+            Gerenciadores::GerenciadorEventos *EventManager;
+            static unsigned int score;
 
-			bool jumped; 
-			//DOUBLE JUMP P/ DEPOIS.
-			bool doubleJumped;
+            sf::Clock timer;
+            float varTempo;
 
-		public:
-			Jogador(const sf::Vector2f pos, const sf::Vector2f size, const int hp = 3);
-			~Jogador();
+            bool jumped;
+            bool inMovement;
+            //DOUBLE JUMP P/ DEPOIS.
+            bool doubleJumped;
 
-			Jogador& operator++() { score += 500; return *this; }
-			Jogador& operator--() { setHP(getHP()-1); return *this; }
-			void operator+=(const int hp);
+        public:
+            Jogador(sf::Vector2f pos = sf::Vector2f(0.f, 0.f), sf::Vector2f size = sf::Vector2f(0.f, 0.f),
+                    const int hp = 3);
 
-			const unsigned int getScore() const { return score; }
+            ~Jogador();
 
-			void move(sf::Keyboard::Key key);
-			void jump();
-			void stopMoving() { this->inMovement = false; }
-			void stopJumping() { this->inAir = false; }
-			void refresh();
-		};
+            Jogador &operator++() {
+                score += 500;
+                return *this;
+            }
 
-	}
+            Jogador &operator--() {
+                setHP(hitpoints - 1);
+                return *this;
+            }
+
+            static const unsigned int getScore() { return score; }
+
+            void move(const bool left);
+            void stopMoving() {inMovement = false;}
+            void refresh();
+
+            void jump();
+
+            void stopJumping() { this->jumped = false; }
+            //void refresh();
+        };
+
+    }
 }

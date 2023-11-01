@@ -28,25 +28,25 @@ void Gerenciadores::GerenciadorEventos::checaTeclaApertada(sf::Keyboard::Key key
 	switch(key) 
 	{
 	case (sf::Keyboard::A) :
-		pPlayer1->move(key);
+		pPlayer1->move(true);
 		break;
 	case (sf::Keyboard::D) :
-		pPlayer1->move(key);
+		pPlayer1->move(false);
 		break;
 	case (sf::Keyboard::W) :
 		pPlayer1->jump();
 		break;
 	case (sf::Keyboard::Left) :
-		pPlayer2->move(key);
+		pPlayer2->move(true);
 		break;
 	case (sf::Keyboard::Right) :
-		pPlayer2->move(key);
+		pPlayer2->move(false);
 		break;
 	case (sf::Keyboard::Up) :
 		pPlayer2->jump();
 		break;
 	case (sf::Keyboard::Escape) :
-		close;
+		close();
 		break;
 	}
 }
@@ -66,22 +66,20 @@ void Gerenciadores::GerenciadorEventos::checaTeclaSolta(sf::Keyboard::Key key)
 	
 }
 
-void Gerenciadores::GerenciadorEventos::executar()
-{
-	sf::Event evento;
+void Gerenciadores::GerenciadorEventos::executar() {
+    sf::Event evento;
 
-	pWindow->pollEvent(evento);
-
-	switch (evento.type)
-	{
-	case(sf::Event::Closed) :
-		close();
-		break;
-	case(sf::Event::KeyPressed) :
-		checaTeclaApertada(evento.key.code);
-		break;
-	case(sf::Event::KeyReleased) :
-		checaTeclaSolta(evento.key.code);
-		break;
-	}
+    while (pWindow->pollEvent(evento)) {
+        switch (evento.type) {
+            case (sf::Event::Closed) :
+                close();
+                break;
+            case (sf::Event::KeyPressed) :
+                checaTeclaApertada(evento.key.code);
+                break;
+            case (sf::Event::KeyReleased) :
+                checaTeclaSolta(evento.key.code);
+                break;
+        }
+    }
 }

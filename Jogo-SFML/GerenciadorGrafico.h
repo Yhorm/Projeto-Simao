@@ -20,7 +20,7 @@ namespace Gerenciadores
 		~GerenciadorGrafico();
 		RenderWindow* getWindow() { return window; }
 		
-		const bool getClosed() const { return window->isOpen(); }
+		const bool getOpen() const { return window->isOpen(); }
 
 		void draw(RectangleShape entity) { window->draw(entity); }
 		void close() { window->close(); }

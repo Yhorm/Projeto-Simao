@@ -1,34 +1,23 @@
 #include "Jogo.h"
 
 Jogo::Jogo() :
-    player1(sf::Vector2f(0.0f, 0.0f), Vector2f(5.f, 5.f)),
-    pGerGraf(pGerGraf->getGerGraf())
-{
+        player1(sf::Vector2f(125.0f, 125.0f), Vector2f(5.f, 5.f)),
+        pGerGraf(pGerGraf->getGerGraf()),
+        EventManager(EventManager->getGerEvent()){
     executar();
 }
 
+Jogo::~Jogo() {
+}
 
+void Jogo::executar() {
+    while (pGerGraf->getOpen()) {
 
-void Jogo::executar()
-{
-    while (pGerGraf->getClosed())
-    {
-
-        sf::Event event;
-
-        while (pGerGraf->getWindow()->pollEvent(event))
-        {
-
-            if (event.type == sf::Event::Closed)
-                pGerGraf->close();
-
-        }
-
+        EventManager->executar();
         pGerGraf->clean();
 
         player1.draw();
-        
-        pGerGraf->display();
 
+        pGerGraf->display();
     }
 }

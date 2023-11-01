@@ -3,7 +3,6 @@
 #include <SFML/graphics.hpp>
 #include <iostream>
 #include "GerenciadorGrafico.h"
-#include "GerenciadorEventos.h"
 
 using namespace std;
 using namespace sf;

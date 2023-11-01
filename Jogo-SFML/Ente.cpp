@@ -10,4 +10,4 @@ Ente::~Ente()
 {
 }
 
-int Ente::cur_id(1);
+int Ente::cur_id(0);
