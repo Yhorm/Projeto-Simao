@@ -1,0 +1,10 @@
+^D:\REPOS\PROJETO-SIMAO\CMAKELISTS.TXT
+setlocal
+D:\CMake\bin\cmake.exe -SD:/Repos/Projeto-Simao -BD:/Repos/Projeto-Simao/build --check-stamp-file D:/Repos/Projeto-Simao/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

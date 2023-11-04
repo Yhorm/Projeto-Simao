@@ -13,7 +13,7 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 
 
-add_executable(Projeto_Simao Jogo-SFML/Constants.h Jogo-SFML/Ente.cpp Jogo-SFML/Ente.h Jogo-SFML/Entidade.cpp Jogo-SFML/Entidade.h Jogo-SFML/GerenciadorEventos.cpp Jogo-SFML/GerenciadorEventos.h Jogo-SFML/GerenciadorGrafico.cpp Jogo-SFML/GerenciadorGrafico.h Jogo-SFML/Jogador.cpp Jogo-SFML/Jogador.h Jogo-SFML/Jogo.cpp Jogo-SFML/Jogo.h Jogo-SFML/main.cpp Jogo-SFML/Personagem.cpp Jogo-SFML/Personagem.h Jogo-SFML/Vector.cpp Jogo-SFML/Vector.h)
+add_executable(Projeto_Simao Jogo-SFML/Constants.h Jogo-SFML/Ente.cpp Jogo-SFML/Ente.h Jogo-SFML/Entidade.cpp Jogo-SFML/Entidade.h Jogo-SFML/GerenciadorEventos.cpp Jogo-SFML/GerenciadorEventos.h Jogo-SFML/GerenciadorGrafico.cpp Jogo-SFML/GerenciadorGrafico.h Jogo-SFML/Jogador.cpp Jogo-SFML/Jogador.h Jogo-SFML/Jogo.cpp Jogo-SFML/Jogo.h Jogo-SFML/main.cpp Jogo-SFML/Personagem.cpp Jogo-SFML/Personagem.h Jogo-SFML/Vector.cpp Jogo-SFML/Vector.h Jogo-SFML/list.h Jogo-SFML/Inimigo.cpp Jogo-SFML/Inimigo.h)
 target_link_libraries(Projeto_Simao PRIVATE sfml-graphics)
 target_compile_features(Projeto_Simao PRIVATE cxx_std_23)
 

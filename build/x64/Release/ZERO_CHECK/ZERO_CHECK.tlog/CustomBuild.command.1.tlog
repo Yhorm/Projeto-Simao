@@ -1,0 +1,10 @@
+^D:\REPOS\PROJETO-SIMAO\BUILD\CMAKEFILES\FE0065E6CC71F51A630FCFB8663CFEB2\GENERATE.STAMP.RULE
+setlocal
+D:\CMake\bin\cmake.exe -SD:/Repos/Projeto-Simao -BD:/Repos/Projeto-Simao/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Repos/Projeto-Simao/build/Projeto_Simao.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

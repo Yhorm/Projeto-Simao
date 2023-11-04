@@ -26,6 +26,8 @@ namespace Gerenciadores {
 
         GerenciadorEventos();
 
+        enum {up = 3, down = 2, left = 1, right = 0, not_move = -1};
+
     public:
         static GerenciadorEventos *getGerEvent();
 

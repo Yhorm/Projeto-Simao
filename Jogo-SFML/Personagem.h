@@ -1,5 +1,6 @@
 #pragma once
 #include "Entidade.h"
+#include "Constants.h"
 
 using namespace std;
 
@@ -12,17 +13,14 @@ namespace Entidades
 		protected:
 			int hitpoints;
 
-			sf::Vector2f hitboxSize;
 			sf::Vector2f velocity;
-
-			const float velMax;
 
 			bool alive;
 			bool inAir;
 			bool inMovement;
 
 		public:
-			Personagem(const sf::Vector2f pos, const sf::Vector2f size, const float vMax = 4, const int hp = 1);
+			Personagem(const sf::Vector2f pos, const sf::Vector2f size, const sf::Vector2f vel, const int hp = 1);
 			~Personagem();
 
 
@@ -32,15 +30,9 @@ namespace Entidades
 			void setAlive(const bool a) { alive = a; }
 			const bool getAlive() const { return alive; }
 
-			void setHitboxSize(const sf::Vector2f hitbox) { hitboxSize = hitbox; }
-			const sf::Vector2f getHitboxSize() const { return hitboxSize; }
-
 			void setVelocity(const sf::Vector2f vel) { velocity = vel; }
 			const sf::Vector2f getVelocity() const { return velocity; }
-
-			const float getVelMax() const { return velMax; }
-
-            virtual void move(const bool left) = 0;
+            virtual void move() = 0;
             virtual void refresh() = 0;
 		};
 

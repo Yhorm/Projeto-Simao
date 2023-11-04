@@ -19,15 +19,16 @@ namespace Entidades {
         private:
             Gerenciadores::GerenciadorEventos *EventManager;
             static unsigned int score;
+            static unsigned int death_C;
 
             sf::Clock timer;
-            float varTempo;
 
             bool jumped;
             bool inMovement;
             //DOUBLE JUMP P/ DEPOIS.
             bool doubleJumped;
-
+            short direction;
+            enum {left = 1, right = 0, not_move = -1};
         public:
             Jogador(sf::Vector2f pos = sf::Vector2f(0.f, 0.f), sf::Vector2f size = sf::Vector2f(0.f, 0.f),
                     const int hp = 3);
@@ -46,14 +47,18 @@ namespace Entidades {
 
             static const unsigned int getScore() { return score; }
 
-            void move(const bool left);
+            void move();
             void stopMoving() {inMovement = false;}
             void refresh();
 
+            const float calculateVelocity(const short direction);
+
             void jump();
+            void setDirection(const short dir = -1) {direction = dir;}
+            const short getDirection() {return direction;}
 
             void stopJumping() { this->jumped = false; }
-            //void refresh();
+
         };
 
     }

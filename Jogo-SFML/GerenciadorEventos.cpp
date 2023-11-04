@@ -28,19 +28,21 @@ void Gerenciadores::GerenciadorEventos::checaTeclaApertada(sf::Keyboard::Key key
 	switch(key) 
 	{
 	case (sf::Keyboard::A) :
-		pPlayer1->move(true);
+        pPlayer1->setDirection(left);
+		pPlayer1->move();
 		break;
 	case (sf::Keyboard::D) :
-		pPlayer1->move(false);
+        pPlayer1->setDirection(right);
+		pPlayer1->move();
 		break;
 	case (sf::Keyboard::W) :
 		pPlayer1->jump();
 		break;
 	case (sf::Keyboard::Left) :
-		pPlayer2->move(true);
+		pPlayer2->move();
 		break;
 	case (sf::Keyboard::Right) :
-		pPlayer2->move(false);
+		pPlayer2->move();
 		break;
 	case (sf::Keyboard::Up) :
 		pPlayer2->jump();
@@ -61,9 +63,6 @@ void Gerenciadores::GerenciadorEventos::checaTeclaSolta(sf::Keyboard::Key key)
 	{
 		pPlayer2->stopMoving();
 	}
-
-
-	
 }
 
 void Gerenciadores::GerenciadorEventos::executar() {
@@ -81,5 +80,6 @@ void Gerenciadores::GerenciadorEventos::executar() {
                 checaTeclaSolta(evento.key.code);
                 break;
         }
+
     }
 }

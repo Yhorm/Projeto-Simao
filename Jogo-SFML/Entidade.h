@@ -10,18 +10,16 @@ namespace Entidades
 	{
 	protected:
 		sf::RectangleShape entity;
-		sf::Vector2f position;
-		sf::Vector2f entSize;
 
 	public:
 		Entidade(Vector2f pos, Vector2f size);
 		~Entidade();
 
-		void setPosition(Vector2f pos) { position = pos; }
-		void setSize(Vector2f size) { entSize = size; }
+		void setPosition(Vector2f pos) { entity.setPosition(pos); }
+		void setSize(Vector2f size) { entity.setSize(size); }
 
-		const Vector2f getPosition() const { return position; }
-		const Vector2f getEntSize() const { return entSize; }
+		const Vector2f getPosition() const { return entity.getPosition(); }
+		const Vector2f getEntSize() const { return entity.getSize(); }
 
 		void draw() { pGerGraf->draw(entity); }
 		virtual void refresh() = 0;
