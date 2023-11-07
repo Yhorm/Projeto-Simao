@@ -14,6 +14,7 @@ namespace Entidades
         {
         protected:
             sf::Vector2f size;
+            sf::Vector2f position;
         public:
             Obstaculo(sf::Vector2f position,
                       sf::Vector2f tam = sf::Vector2f(Constants::SIZE_PLTFORM_W, Constants::SIZE_PLTFORM_H),
@@ -22,10 +23,10 @@ namespace Entidades
 
             virtual void colision(Entidades::Entidade* entity,
                                   sf::Vector2f distance) = 0;
-            virtual void refresh() {draw();}
+            virtual void refresh() = 0;
 
-            virtual void colisionObstacle(sf::Vector2f distance,
-                                          Entidades::Personagens::Jogador* pPlyr);
+            virtual void colisionObstaclePlayer(sf::Vector2f distance,
+                                                Entidades::Personagens::Jogador* pPlyr) = 0;
         };
     }
 }

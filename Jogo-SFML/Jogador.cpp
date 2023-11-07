@@ -22,7 +22,7 @@ void Entidades::Personagens::Jogador::move() {
 }
 
 void Entidades::Personagens::Jogador::jump() {
-    if(!inAir)
+    if(!inAir || (!doubleJumped && inAir))
     {
         inAir = true;
         float velMax = -sqrt(2.0f * Constants::GRAVITY * Constants::JMP_HEIGHT);

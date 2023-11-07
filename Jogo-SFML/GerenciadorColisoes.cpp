@@ -45,13 +45,16 @@ void GerenciadorColisoes::execute()
 
     Entidades::Entidade* obstac1 = (*auxObjs);
 
+    sf::Vector2f distanceP1P2(pers2->getPosition().x - pers1->getPosition().x, pers2->getPosition().y -pers1->getPosition().y);
+    sf::Vector2f distanceP1O1(obstac1->getPosition().x - pers1->getPosition().x, obstac1->getPosition().y -pers1->getPosition().y);
+
     while(pers1 != nullptr)
     {
         while(pers2 != NULL)
         {
             sf::Vector2f distance = calcColission(pers1, pers2);
             if(distance.x < 0.0f && distance.y < 0.0f)
-                pers1->colision(pers2);
+                pers1->colision(pers2, distanceP1P2);
             auxPers++;
             pers2 = (*auxPers);
         }
@@ -59,12 +62,11 @@ void GerenciadorColisoes::execute()
         auxPers++;
     }
 
-
     while(obstac1 != NULL)
     {
         sf::Vector2f distance = calcColission(pers1, obstac1);
         if(distance.x < 0.0f && distance.y < 0.0f)
-            obstac1->colision(pers1);
+            obstac1->colision(pers1, distanceP1O1);
         obstac1 = (*auxPers);
     }
 

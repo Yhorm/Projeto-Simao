@@ -22,7 +22,7 @@ void Jogo::executar() {
         EventManager->executar();
         pGerGraf->clean();
         //enemy->move();
-        player1->draw();
+        player1->refreshPlr();
         pGerGraf->display();
     }
 }

@@ -2,7 +2,7 @@
 
 Entidades::Personagens::Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f size, const sf::Vector2f vel, const int hp, const Identifier::ID i) :
 	Entidade(pos, size, i),
-	velocity(vel),
+	velFinal(vel),
 	hitpoints(hp),
 	inMovement(false),
 	inAir(false),
@@ -45,7 +45,11 @@ void Personagens::Personagem::calculateVelocity(const short direction)
 void Personagens::Personagem::refresh()
 {
     if(inMovement)
+    {
         calculateVelocity(direction);
+        setPosition(velFinal);
+    }
+
     Entidade::draw();
 }
 
