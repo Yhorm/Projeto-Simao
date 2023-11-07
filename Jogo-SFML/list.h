@@ -60,7 +60,8 @@ namespace Listas
             {
             }
             ~Iterator()
-            {}
+            {
+            }
 
             Iterator& operator++()
             {
@@ -86,8 +87,8 @@ namespace Listas
         };
 
     private:
-        Elemento<TYPE> pPrim;
-        Elemento<TYPE> pAtual;
+        Elemento<TYPE>* pPrim;
+        Elemento<TYPE>* pAtual;
         unsigned int tamanho;
     public:
         Iterator<TYPE> getPrim() { return Iterator<TYPE>(pPrim); }
@@ -95,7 +96,7 @@ namespace Listas
         {
             Elemento<TYPE>* aux = nullptr;
 
-            while(pPrim)
+            while(pPrim != NULL)
             {
                 aux = pPrim;
                 pPrim = pPrim->getProx();

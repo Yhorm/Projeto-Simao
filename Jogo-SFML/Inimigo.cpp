@@ -64,7 +64,6 @@ void Personagens::Inimigo::Inimigo::randomMovement()
         movement_dir = rand()%4;
         timer.restart();
     }
-
 }
 
 
@@ -86,6 +85,31 @@ void Personagens::Inimigo::Inimigo::followPlayer()
     else
     {
         entity.move(0.0f, -Constants::VEL_ENEMY_Y);
+    }
+}
+
+void Personagens::Inimigo::Inimigo::refresh()
+{
+    this->draw();
+    this->move();
+    if(hitpoints == 0 && getAlive())
+        setAlive(false);
+}
+
+
+void Personagens::Inimigo::Inimigo::colision(Entidades::Entidade *entity, sf::Vector2f distance)
+{
+    Identifier::ID id = entity->getId();
+    switch(id)
+    {
+        case(Identifier::ID::player) :
+        {
+            break;
+        }
+        case(Identifier::ID::platform) :
+        {
+            break;
+        }
     }
 }
 

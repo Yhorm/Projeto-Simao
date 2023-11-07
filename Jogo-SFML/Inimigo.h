@@ -40,7 +40,8 @@ namespace Entidades
                 bool CheckRadius(sf::Vector2f posPlayer, sf::Vector2f posEnemy);
 
                 void move();
-                void refresh() { setPosition(getPosition()); }
+                void refresh();
+                void colision(Entidades::Entidade* entity, sf::Vector2f distance);
                 void randomMovement();
                 void followPlayer();
 

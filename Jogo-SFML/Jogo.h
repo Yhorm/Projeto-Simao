@@ -5,8 +5,10 @@
 
 #include "GerenciadorEventos.h"
 #include "GerenciadorGrafico.h"
+#include "GerenciadorColisoes.h"
+
 #include "Inimigo.h"
-#include <vector>
+#include "listEntidade.h"
 
 
 using namespace std;
@@ -18,8 +20,10 @@ private:
     Entidades::Personagens::Jogador* player2;
     Entidades::Personagens::Inimigo::Inimigo* enemy;
 
-    vector<Entidades::Personagens::Personagem*> vPers;
+    Listas::listEntidade* listaPersonagens;
+    Listas::listEntidade* listaObstaculos;
 
+    Gerenciadores::GerenciadorColisoes *pColMngr;
     Gerenciadores::GerenciadorGrafico *pGerGraf;
     Gerenciadores::GerenciadorEventos *EventManager;
 public:

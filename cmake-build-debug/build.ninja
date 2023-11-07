@@ -129,6 +129,30 @@ build CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Inimigo.cpp.obj: CXX_COMPILER__Proj
   OBJECT_DIR = CMakeFiles\Projeto_Simao.dir
   OBJECT_FILE_DIR = CMakeFiles\Projeto_Simao.dir\Jogo-SFML
 
+build CMakeFiles/Projeto_Simao.dir/Jogo-SFML/GerenciadorColisoes.cpp.obj: CXX_COMPILER__Projeto_Simao_Debug D$:/Repos/Projeto-Simao/Jogo-SFML/GerenciadorColisoes.cpp || cmake_object_order_depends_target_Projeto_Simao
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Projeto_Simao.dir\Jogo-SFML\GerenciadorColisoes.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++23
+  INCLUDES = -ID:/Repos/Projeto-Simao/cmake-build-debug/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\Projeto_Simao.dir
+  OBJECT_FILE_DIR = CMakeFiles\Projeto_Simao.dir\Jogo-SFML
+
+build CMakeFiles/Projeto_Simao.dir/Jogo-SFML/listEntidade.cpp.obj: CXX_COMPILER__Projeto_Simao_Debug D$:/Repos/Projeto-Simao/Jogo-SFML/listEntidade.cpp || cmake_object_order_depends_target_Projeto_Simao
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Projeto_Simao.dir\Jogo-SFML\listEntidade.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++23
+  INCLUDES = -ID:/Repos/Projeto-Simao/cmake-build-debug/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\Projeto_Simao.dir
+  OBJECT_FILE_DIR = CMakeFiles\Projeto_Simao.dir\Jogo-SFML
+
+build CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Obstaculo.cpp.obj: CXX_COMPILER__Projeto_Simao_Debug D$:/Repos/Projeto-Simao/Jogo-SFML/Obstaculo.cpp || cmake_object_order_depends_target_Projeto_Simao
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Projeto_Simao.dir\Jogo-SFML\Obstaculo.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++23
+  INCLUDES = -ID:/Repos/Projeto-Simao/cmake-build-debug/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\Projeto_Simao.dir
+  OBJECT_FILE_DIR = CMakeFiles\Projeto_Simao.dir\Jogo-SFML
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Projeto_Simao
@@ -137,7 +161,7 @@ build CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Inimigo.cpp.obj: CXX_COMPILER__Proj
 #############################################
 # Link the executable bin\Projeto_Simao.exe
 
-build bin/Projeto_Simao.exe: CXX_EXECUTABLE_LINKER__Projeto_Simao_Debug CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Ente.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Entidade.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/GerenciadorEventos.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/GerenciadorGrafico.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Jogador.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Jogo.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/main.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Personagem.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Vector.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Inimigo.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
+build bin/Projeto_Simao.exe: CXX_EXECUTABLE_LINKER__Projeto_Simao_Debug CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Ente.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Entidade.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/GerenciadorEventos.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/GerenciadorGrafico.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Jogador.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Jogo.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/main.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Personagem.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Vector.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Inimigo.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/GerenciadorColisoes.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/listEntidade.cpp.obj CMakeFiles/Projeto_Simao.dir/Jogo-SFML/Obstaculo.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
   FLAGS = -g
   LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-window-s-d.a  _deps/sfml-build/lib/libsfml-system-s-d.a  -lopengl32  -lwinmm  -lgdi32  _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Projeto_Simao.dir

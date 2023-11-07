@@ -3,6 +3,8 @@
 #include <SFML/graphics.hpp>
 #include <iostream>
 #include "GerenciadorGrafico.h"
+#include "ID.h"
+
 
 using namespace std;
 using namespace sf;
@@ -13,8 +15,6 @@ class Ente
 {
 protected:
 	Gerenciadores::GerenciadorGrafico* pGerGraf;
-	int id;
-	static int cur_id;
 
 public:
 	Ente();

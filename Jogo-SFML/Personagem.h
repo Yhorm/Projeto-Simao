@@ -13,27 +13,34 @@ namespace Entidades
 		protected:
 			int hitpoints;
 
-			sf::Vector2f velocity;
+			sf::Vector2f velFinal;
+            sf::Clock timer;
 
-			bool alive;
+
 			bool inAir;
 			bool inMovement;
 
+            short direction;
+            enum {left = 1, right = 0, not_move = -1};
+
 		public:
-			Personagem(const sf::Vector2f pos, const sf::Vector2f size, const sf::Vector2f vel, const int hp = 1);
+			Personagem(const sf::Vector2f pos, const sf::Vector2f size, const sf::Vector2f vel, const int hp = 1, const Identifier::ID i = Identifier::ID::none);
 			~Personagem();
 
 
 			void setHP(const int hp) { hitpoints = hp; }
 			const int getHP() const { return hitpoints; }
 
-			void setAlive(const bool a) { alive = a; }
-			const bool getAlive() const { return alive; }
 
-			void setVelocity(const sf::Vector2f vel) { velocity = vel; }
-			const sf::Vector2f getVelocity() const { return velocity; }
-            virtual void move() = 0;
-            virtual void refresh() = 0;
+            void calculateVelocity(const short direction);
+			void setVelFinal(const sf::Vector2f vel) { velFinal = vel; }
+			const sf::Vector2f getvelFinal() const { return velFinal; }
+            void setDirection(const short dir = -1) {direction = dir;}
+
+            void refresh();
+            virtual void colision(Entidades::Entidade* entity, sf::Vector2f distance) = 0;
+
+
 		};
 
 	}
