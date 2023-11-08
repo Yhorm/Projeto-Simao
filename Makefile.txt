@@ -1,0 +1,8 @@
+all: compile link clean
+
+compile:
+	g++-c Jogo-SFML/*.cpp -ISFML/include 
+link:
+	g++ *.o -Wall -o main -L SFML/lib -l fsml-graphics -l sfml-window -l sfml-system
+clean:
+	del *.o

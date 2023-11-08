@@ -36,6 +36,7 @@ namespace Entidades
 			void setVelFinal(const sf::Vector2f vel) { velFinal = vel; }
 			const sf::Vector2f getvelFinal() const { return velFinal; }
             void setDirection(const short dir = -1) {direction = dir;}
+            void setInAir(const bool in) {inAir = in;}
 
             void refresh();
             virtual void colision(Entidades::Entidade* entity, sf::Vector2f distance) = 0;

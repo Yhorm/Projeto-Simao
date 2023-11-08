@@ -4,8 +4,9 @@
 
 #include "GerenciadorColisoes.h"
 
-GerenciadorColisoes::GerenciadorColisoes(Listas::listEntidade *listaPersonagens, Listas::listEntidade *listaObstac) :
+GerenciadorColisoes::GerenciadorColisoes(Listas::listEntidade *listaPersonagens, Listas::listEntidade* listEne, Listas::listEntidade *listaObstac) :
     listPers(listaPersonagens),
+    listEnemies(listEne),
     listObstaculo(listaObstac)
 {
 }
@@ -16,6 +17,8 @@ GerenciadorColisoes::~GerenciadorColisoes()
         delete listObstaculo;
     if (listPers)
         delete listPers;
+    if (listEnemies)
+        delete listEnemies;
 }
 
 const sf::Vector2f GerenciadorColisoes::calcColission(Entidades::Entidade *char1, Entidades::Entidade *char2)
@@ -36,39 +39,55 @@ const sf::Vector2f GerenciadorColisoes::calcColission(Entidades::Entidade *char1
 
 void GerenciadorColisoes::execute()
 {
-    Listas::List<Entidades::Entidade>::Iterator<Entidades::Entidade> auxPers = listPers->getPrim();
-    Listas::List<Entidades::Entidade>::Iterator<Entidades::Entidade> auxObjs = listObstaculo->getPrim();
+    Listas::List<Entidades::Entidade> aux;
+    Listas::List<Entidades::Entidade>::Iterator<Entidades::Entidade> obs = listObstaculo->getPrim();
+    Listas::List<Entidades::Entidade>::Iterator<Entidades::Entidade> enemy = listEnemies->getPrim();
+    Listas::List<Entidades::Entidade>::Iterator<Entidades::Entidade> player;
+    sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f);
 
-    Entidades::Entidade* pers1 = (*auxPers);
-    auxPers++;
-    Entidades::Entidade* pers2 = (*auxPers);
-
-    Entidades::Entidade* obstac1 = (*auxObjs);
-
-    sf::Vector2f distanceP1P2(pers2->getPosition().x - pers1->getPosition().x, pers2->getPosition().y -pers1->getPosition().y);
-    sf::Vector2f distanceP1O1(obstac1->getPosition().x - pers1->getPosition().x, obstac1->getPosition().y -pers1->getPosition().y);
-
-    while(pers1 != nullptr)
+    for(player = listPers->getPrim(); player != nullptr; player++)
     {
-        while(pers2 != NULL)
+        if((*player)->getAlive())
         {
-            sf::Vector2f distance = calcColission(pers1, pers2);
-            if(distance.x < 0.0f && distance.y < 0.0f)
-                pers1->colision(pers2, distanceP1P2);
-            auxPers++;
-            pers2 = (*auxPers);
+            while(enemy != nullptr)
+            {
+                if((*enemy)->getAlive())
+                {
+                    ds = calcColission(*player, *enemy);
+                    if(ds.x < 0.0f && ds.y < 0.0f)
+                        (*player)->colision(*enemy, ds);
+                }
+                enemy++;
+            }
+
+            while(obs != nullptr)
+            {
+                if((*obs)->getAlive())
+                {
+                    ds = calcColission(*player, *obs);
+                    if(ds.x < 0.0f && ds.y < 0.0f)
+                        (*obs)->colision(*player, ds);
+                }
+                obs++;
+            }
         }
-        auxPers = listPers->getPrim();
-        auxPers++;
     }
 
-    while(obstac1 != NULL)
+    while(enemy != nullptr)
     {
-        sf::Vector2f distance = calcColission(pers1, obstac1);
-        if(distance.x < 0.0f && distance.y < 0.0f)
-            obstac1->colision(pers1, distanceP1O1);
-        obstac1 = (*auxPers);
+        if((*enemy)->getAlive())
+        {
+            while(obs != nullptr)
+            {
+                if((*obs)->getAlive())
+                {
+                    ds = calcColission(*enemy, *obs);
+                    if(ds.x < 0.0f && ds.y < 0.0f)
+                        (*obs)->colision(*enemy, ds);
+                }
+                obs++;
+            }
+        }
+        enemy++;
     }
-
-
 }

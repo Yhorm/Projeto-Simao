@@ -25,10 +25,9 @@ namespace Listas
         //num de entidades mortas
         const unsigned int getNumKilled();
 
-        //executar chama o refresh de cada entidade, o que faz com que todos se movam e se desenhem.
-        //Também verifica se os mesmos estão vivos.
-        void execute();
+        //executar chama o draw de cada entidade, o que faz com que todos se movam e se desenhem.
 
+        void execute();
         Listas::List<Entidades::Entidade>::Iterator <Entidades::Entidade> getPrim() { return EntityObjList.getPrim(); }
     };
 }

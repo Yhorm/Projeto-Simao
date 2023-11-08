@@ -26,14 +26,9 @@ void Entidades::Personagens::Jogador::jump() {
     {
         inAir = true;
         float velMax = -sqrt(2.0f * Constants::GRAVITY * Constants::JMP_HEIGHT);
-        setVelFinal(sf::Vector2f(getvelFinal().x,velMax));
+        setVelFinal(sf::Vector2f(getvelFinal().x,getvelFinal().y + velMax));
     }
 }
-
-
-
-unsigned int Entidades::Personagens::Jogador::score(0);
-unsigned int Entidades::Personagens::Jogador::death_C(0);
 
 void Personagens::Jogador::colision(Entidades::Entidade *entity, sf::Vector2f distance)
 {
@@ -46,8 +41,11 @@ void Personagens::Jogador::colision(Entidades::Entidade *entity, sf::Vector2f di
         }
         case(Identifier::ID::platform) :
         {
+            entity->colision(this, distance);
             break;
         }
     }
 }
 
+unsigned int Entidades::Personagens::Jogador::score(0);
+unsigned int Entidades::Personagens::Jogador::death_C(0);

@@ -17,9 +17,10 @@ namespace Gerenciadores
     {
     private:
         Listas::listEntidade* listPers;
+        Listas::listEntidade* listEnemies;
         Listas::listEntidade* listObstaculo;
     public:
-        GerenciadorColisoes(Listas::listEntidade* listaPersonagens, Listas::listEntidade* listaObstac);
+        GerenciadorColisoes(Listas::listEntidade* listaPersonagens, Listas::listEntidade* listEne,Listas::listEntidade* listaObstac);
         ~GerenciadorColisoes();
 
         const sf::Vector2f calcColission(Entidades::Entidade* char1, Entidades::Entidade* char2);

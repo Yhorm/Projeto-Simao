@@ -17,6 +17,7 @@ namespace Constants
     constexpr float SIZE_ENEMY_H = 50.0;
     constexpr float SIZE_ENEMY_W = 50.0;
     constexpr float SIZE_PLTFORM_H = 50.0;
-    constexpr float SIZE_PLTFORM_W = 250.0;
+    constexpr float SIZE_PLTFORM_W = 1000.0;
     constexpr float DMG_SPIKES = 999;
+    constexpr float SCALE_PLTFRM = 1.0;
 }

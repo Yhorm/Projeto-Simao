@@ -12,6 +12,7 @@ namespace Identifier
         player = 1,
         enemy = 2,
         platform = 3,
+        projectile = 4
     };
 }
 

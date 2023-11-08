@@ -36,8 +36,13 @@ void listEntidade::execute()
 
     while(aux != nullptr)
     {
+        (*aux)->draw();
         (*aux)->refresh();
+        aux++;
     }
 }
+
+
+
 
 

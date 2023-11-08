@@ -19,37 +19,47 @@ Entidades::Personagens::Personagem::~Personagem()
 void Personagens::Personagem::calculateVelocity(const short direction)
 {
     /*
-     * calcula a velocidade final, aplica a gravidade e já seta a posição.
+     * calcula a velocidade final e já seta a posição.
      * */
-    float deltaTime = timer.getElapsedTime().asSeconds();
-    float distance = Constants::STRT_VEL_PLYR_X * deltaTime;
-    if(distance > Constants::VEL_PLAYER_X)
-        distance = Constants::VEL_PLAYER_X;
 
-    float distanceY = velFinal.y + (Constants::GRAVITY*deltaTime);
-    if(distanceY > Constants::VEL_PLAYER_Y)
-        distanceY = Constants::VEL_PLAYER_Y;
+    float deltaTime = timer.getElapsedTime().asSeconds();
+
+    float deltaSpeed = Constants::STRT_VEL_PLYR_X * deltaTime;
+    if(deltaSpeed > Constants::VEL_PLAYER_X)
+        deltaSpeed = Constants::VEL_PLAYER_X;
 
     switch(direction)
     {
         case(left) :
-            distance*=-1;
-            setVelFinal(sf::Vector2f(distance + getPosition().x, distanceY + getPosition().y));
+            deltaSpeed*=-1;
+            entity.move(sf::Vector2f(deltaSpeed ,0.0f));
+            setVelFinal(sf::Vector2f(deltaSpeed + getPosition().x, getPosition().y));
             break;
         case(right) :
-            setVelFinal(sf::Vector2f(distance + getPosition().x, distanceY + getPosition().y));
+            entity.move(sf::Vector2f(deltaSpeed ,0.0f));
+            setVelFinal(sf::Vector2f(deltaSpeed + getPosition().x,  getPosition().y));
             break;
     }
 }
 
 void Personagens::Personagem::refresh()
 {
+
     if(inMovement)
     {
         calculateVelocity(direction);
-        setPosition(velFinal);
     }
 
-    Entidade::draw();
+    float deltaTime = timer.getElapsedTime().asSeconds();
+    //float deltaTime = 1.0f;
+    float deltaSpeedY = velFinal.y + (Constants::GRAVITY*deltaTime);
+    if(deltaSpeedY > Constants::VEL_PLAYER_Y)
+        deltaSpeedY = Constants::VEL_PLAYER_Y;
+
+    setVelFinal(sf::Vector2f (getPosition().x, deltaSpeedY + getPosition().y));
+    setPosition(velFinal);
+    entity.setPosition(getPosition());
+
+    draw();
 }
 

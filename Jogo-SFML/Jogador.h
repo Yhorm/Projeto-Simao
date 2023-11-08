@@ -46,7 +46,8 @@ namespace Entidades {
             static const unsigned int getScore() { return score; }
 
             void move();
-            void stopMoving() {inMovement = false;}
+            void stopMoving() {inMovement = false;
+                                setDirection(not_move); }
 
             void jump();
 
@@ -54,7 +55,6 @@ namespace Entidades {
 
             void colision(Entidades::Entidade* entity, sf::Vector2f distance);
 
-            void refreshPlr() {refresh();}
         };
     }
 }
