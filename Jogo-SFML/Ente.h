@@ -9,12 +9,10 @@
 using namespace std;
 using namespace sf;
 
-
-
 class Ente
 {
 protected:
-	Gerenciadores::GerenciadorGrafico* pGerGraf;
+	static Gerenciadores::GerenciadorGrafico* pGerGraf;
 
 public:
 	Ente();

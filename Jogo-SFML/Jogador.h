@@ -2,7 +2,6 @@
 
 
 #include "Personagem.h"
-//#include "Vector.h"
 #include "Constants.h"
 #include <cmath>
 
@@ -29,16 +28,18 @@ namespace Entidades {
 
         public:
             Jogador(sf::Vector2f pos = sf::Vector2f(0.f, 0.f), sf::Vector2f size = sf::Vector2f(0.f, 0.f),
-                    const int hp = 3);
+                    const int hp = 3, Identifier::ID i = Identifier::ID::player);
 
             ~Jogador();
 
-            Jogador &operator++() {
+            Jogador &operator++()
+            {
                 score += 500;
                 return *this;
             }
 
-            Jogador &operator--() {
+            Jogador &operator--()
+            {
                 setHP(hitpoints - 1);
                 return *this;
             }
@@ -50,6 +51,7 @@ namespace Entidades {
                                 setDirection(not_move); }
 
             void jump();
+
 
             void stopDJumping() { this->doubleJumped = false; }
 

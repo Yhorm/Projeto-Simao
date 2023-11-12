@@ -15,50 +15,27 @@ Entidades::Personagens::Personagem::~Personagem()
 {
 }
 
-
-void Personagens::Personagem::calculateVelocity(const short direction)
-{
-    /*
-     * calcula a velocidade final e já seta a posição.
-     * */
-
-    float deltaTime = timer.getElapsedTime().asSeconds();
-
-    float deltaSpeed = Constants::STRT_VEL_PLYR_X * deltaTime;
-    if(deltaSpeed > Constants::VEL_PLAYER_X)
-        deltaSpeed = Constants::VEL_PLAYER_X;
-
-    switch(direction)
-    {
-        case(left) :
-            deltaSpeed*=-1;
-            entity.move(sf::Vector2f(deltaSpeed ,0.0f));
-            setVelFinal(sf::Vector2f(deltaSpeed + getPosition().x, getPosition().y));
-            break;
-        case(right) :
-            entity.move(sf::Vector2f(deltaSpeed ,0.0f));
-            setVelFinal(sf::Vector2f(deltaSpeed + getPosition().x,  getPosition().y));
-            break;
-    }
-}
-
 void Personagens::Personagem::refresh()
 {
 
+    sf::Vector2f deltaSpeed(0.0f, 0.0f);
+
     if(inMovement)
     {
-        calculateVelocity(direction);
+        deltaSpeed.x = velFinal.x * Constants::DELTATIME;
+        if(direction == left)
+        {
+            deltaSpeed.x *= -1;
+        }
     }
 
-    float deltaTime = timer.getElapsedTime().asSeconds();
-    //float deltaTime = 1.0f;
-    float deltaSpeedY = velFinal.y + (Constants::GRAVITY*deltaTime);
-    if(deltaSpeedY > Constants::VEL_PLAYER_Y)
-        deltaSpeedY = Constants::VEL_PLAYER_Y;
+    const float velY = velFinal.y;
+    velFinal.y = velFinal.y + Constants::GRAVITY * Constants::DELTATIME;
+    deltaSpeed.y = velY * Constants::DELTATIME + (Constants::GRAVITY * Constants::DELTATIME * Constants::DELTATIME) / 2.0f;
 
-    setVelFinal(sf::Vector2f (getPosition().x, deltaSpeedY + getPosition().y));
-    setPosition(velFinal);
-    entity.setPosition(getPosition());
+    setPosition(sf::Vector2f(getPosition().x + deltaSpeed.x, getPosition().y + deltaSpeed.y));
+
+    velFinal.x = Constants::VEL_PLAYER_X;
 
     draw();
 }

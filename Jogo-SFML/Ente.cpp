@@ -1,7 +1,6 @@
 #include "Ente.h"
 
-Ente::Ente() :
-	pGerGraf(pGerGraf->getGerGraf())
+Ente::Ente()
 {
 }
 
@@ -9,3 +8,4 @@ Ente::~Ente()
 {
 }
 
+Gerenciadores::GerenciadorGrafico* Ente::pGerGraf = pGerGraf->getGerGraf();

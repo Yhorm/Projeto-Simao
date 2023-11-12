@@ -31,8 +31,6 @@ namespace Entidades
 			void setHP(const int hp) { hitpoints = hp; }
 			const int getHP() const { return hitpoints; }
 
-
-            void calculateVelocity(const short direction);
 			void setVelFinal(const sf::Vector2f vel) { velFinal = vel; }
 			const sf::Vector2f getvelFinal() const { return velFinal; }
             void setDirection(const short dir = -1) {direction = dir;}

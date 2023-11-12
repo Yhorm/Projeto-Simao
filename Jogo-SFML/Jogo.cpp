@@ -18,7 +18,8 @@ Jogo::~Jogo()
 void Jogo::instanceEntities()
 {
     player1 = new Entidades::Personagens::Jogador(sf::Vector2f(500.0f, 100.0f),
-                                                                                   sf::Vector2f(Constants::SIZE_PLYR_W, Constants::SIZE_PLYR_H));
+                                                                                   sf::Vector2f(Constants::SIZE_PLYR_W, Constants::SIZE_PLYR_H),
+                                                                                   1, Identifier::ID::player);
 
     enemy = new Entidades::Personagens::Inimigo::Inimigo(sf::Vector2f(800.0f, 700.0f),
             sf::Vector2f(Constants::SIZE_ENEMY_W, Constants::SIZE_ENEMY_H),
@@ -35,26 +36,26 @@ void Jogo::instanceEntities()
     Entidades::Entidade* e1 = static_cast<Entidades::Entidade*>(player1);
     Entidades::Entidade* e2 = static_cast<Entidades::Entidade*>(enemy);
     Entidades::Entidade* e3 = static_cast<Entidades::Entidade*>(p1);
+    /*
     Entidades::Entidade* e4 = static_cast<Entidades::Entidade*>(p2);
     Entidades::Entidade* e5 = static_cast<Entidades::Entidade*>(p3);
     Entidades::Entidade* e6 = static_cast<Entidades::Entidade*>(p4);
+    */
 
     listaPersonagens.addEntity(e1);
     listaInimigos.addEntity(e2);
 
     listaObstaculos.addEntity(e3);
+    /*
     listaObstaculos.addEntity(e4);
     listaObstaculos.addEntity(e5);
     listaObstaculos.addEntity(e6);
-
+    */
     EventManager->setPlayer1(player1);
 
 }
-void Jogo::executar() {
-   // player1 = new Entidades::Personagens::Jogador(sf::Vector2f(640, 480), Vector2f(Constants::SIZE_PLYR_W, Constants::SIZE_PLYR_H));
-    //player2 = new Entidades::Personagens::Jogador(sf::Vector2f(640, 480), Vector2f(Constants::SIZE_PLYR_W, Constants::SIZE_PLYR_H));
-   // enemy = new Entidades::Personagens::Inimigo::Inimigo(sf::Vector2f(Constants::VEL_ENEMY_X, Constants::VEL_ENEMY_Y),
-   //                                                      sf::Vector2f(Constants::SIZE_ENEMY_W, Constants::SIZE_ENEMY_W) ,player1);
+void Jogo::executar()
+{
 
     instanceEntities();
 

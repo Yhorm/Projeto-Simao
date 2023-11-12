@@ -1,15 +1,13 @@
 #include "Jogador.h"
 #include "GerenciadorEventos.h"
 
-Entidades::Personagens::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f size, const int hp) :
+Entidades::Personagens::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f size, const int hp, Identifier::ID i) :
         EventManager(EventManager->getGerEvent()),
-        Personagem(pos, size, sf::Vector2f(Constants::VEL_PLAYER_X, Constants::VEL_PLAYER_Y), hp),
+        Personagem(pos, size, sf::Vector2f(Constants::VEL_PLAYER_X, Constants::VEL_PLAYER_Y), hp, i),
         doubleJumped(false),
         direction(-1)
         {
-               setHP(hp);
-               EventManager->setPlayer1(this);
-               entity.setFillColor(sf::Color(255, 255, 255));
+               entity.setFillColor(sf::Color(0, 0, 255));
         }
 
 Entidades::Personagens::Jogador::~Jogador()
@@ -22,11 +20,10 @@ void Entidades::Personagens::Jogador::move() {
 }
 
 void Entidades::Personagens::Jogador::jump() {
-    if(!inAir || (!doubleJumped && inAir))
+    if(!inAir)
     {
-        inAir = true;
-        float velMax = -sqrt(2.0f * Constants::GRAVITY * Constants::JMP_HEIGHT);
-        setVelFinal(sf::Vector2f(getvelFinal().x,getvelFinal().y + velMax));
+        this->inAir = true;
+        velFinal.y = -sqrt((2.0f * Constants::GRAVITY * Constants::JMP_HEIGHT));
     }
 }
 
@@ -37,6 +34,9 @@ void Personagens::Jogador::colision(Entidades::Entidade *entity, sf::Vector2f di
     {
         case(Identifier::ID::enemy) :
         {
+            operator--();
+            if(hitpoints <= 0)
+                setAlive(false);
             break;
         }
         case(Identifier::ID::platform) :
@@ -44,6 +44,15 @@ void Personagens::Jogador::colision(Entidades::Entidade *entity, sf::Vector2f di
             entity->colision(this, distance);
             break;
         }
+        case(Identifier::ID::projectile) :
+        {
+            operator--();
+            if(hitpoints <= 0)
+                setAlive(false);
+            break;
+        }
+        default:
+            break;
     }
 }
 
