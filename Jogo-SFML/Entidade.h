@@ -13,7 +13,7 @@ namespace Entidades
         const Identifier::ID ID;
 		sf::RectangleShape entity;
         sf::Vector2f curPos;
-        sf::Vector2f sizeEntity;
+        sf::Vector2f entitySize;
 
         bool alive;
 
@@ -22,10 +22,10 @@ namespace Entidades
 		~Entidade();
 
 		void setPosition(Vector2f pos) { entity.setPosition(pos); this->curPos = pos; }
-		void setSize(Vector2f size) { entity.setSize(size); this->sizeEntity = size; }
+		void setSize(Vector2f size) { entity.setSize(size); this->entitySize = size; }
 
 		const Vector2f getPosition() const { return curPos; }
-		const Vector2f getEntSize() const { return sizeEntity; }
+		const Vector2f getEntSize() const { return entitySize; }
 
         void setAlive(const bool a) { alive = a; }
         const bool getAlive() const { return alive; }

@@ -20,6 +20,9 @@ namespace Constants
     constexpr float SIZE_PLTFORM_W = 1280.0;
     constexpr float DMG_SPIKES = 999;
     constexpr float SCALE_PLTFRM = 1.0;
-
-    constexpr char PATH_TEXT_PLYR;
+    constexpr float VEL_PROJECTILE = 3.5;
+    constexpr float SIZE_PROJECTILE_X = 50;
+    constexpr float SIZE_PROJECTILE_Y = 100;
+    constexpr float PROJECTILE_HOMING_RADIUS = 300.50;
+    constexpr float PROJECTILE_DMG_ENEMY = 1;
 }
