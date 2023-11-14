@@ -42,20 +42,20 @@ void Projetil::Projetil::chasePlayer()
 {
     if(pPlayer->getPosition().x - getPosition().x > 0.0f)
     {
-        entity.move(Constants::VEL_ENEMY_X, 0.0f);
+        entity.move(Constants::Constants::VEL_PROJECTILE, 0.0f);
     }
     else
     {
-        entity.move(-Constants::VEL_ENEMY_X, 0.0f);
+        entity.move(-Constants::VEL_PROJECTILE, 0.0f);
     }
 
     if(pPlayer->getPosition().y - getPosition().y > 0.0f)
     {
-        entity.move(0.0f, Constants::VEL_ENEMY_Y);
+        entity.move(0.0f, Constants::VEL_PROJECTILE);
     }
     else
     {
-        entity.move(0.0f, -Constants::VEL_ENEMY_Y);
+        entity.move(0.0f, -Constants::VEL_PROJECTILE);
     }
 }
 
